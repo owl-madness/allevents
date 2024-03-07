@@ -1,5 +1,4 @@
 import 'package:allevents/controller/category_provider.dart';
-import 'package:allevents/controller/explore_controller.dart';
 import 'package:allevents/screen/event_details_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -114,18 +113,27 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 28.0, vertical: 8.0),
                                 child: GestureDetector(
-                                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => EventDetailsScreen(eventItem: eventItem),)),
+                                  onTap: () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            EventDetailsScreen(
+                                                eventItem: eventItem),
+                                      )),
                                   child: Container(
                                     height: 140,
                                     width: double.maxFinite,
                                     decoration: BoxDecoration(
                                         color: Colors.white,
-                                        borderRadius: BorderRadius.circular(15)),
+                                        borderRadius:
+                                            BorderRadius.circular(15)),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(15),
+                                          borderRadius:
+                                              BorderRadius.circular(15),
                                           child: SizedBox(
                                             height: double.maxFinite,
                                             width: 140,
@@ -133,95 +141,194 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                                 eventItem.thumbUrl!),
                                           ),
                                         ),
-                                        SizedBox(width: 8.0),
+                                        const SizedBox(width: 8.0),
                                         Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceEvenly,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 8.0,
                                             ),
                                             SizedBox(
                                                 width: 180,
                                                 child: Text(
                                                   eventItem.eventname!,
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                   maxLines: 2,
-                                                  overflow: TextOverflow.ellipsis,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 )),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 3.0,
                                             ),
                                             SizedBox(
                                                 width: 180,
                                                 child: Text(
                                                   eventItem.startTimeDisplay!,
-                                                  style: TextStyle(fontSize: 11),
+                                                  style: const TextStyle(
+                                                      fontSize: 11),
                                                   maxLines: 2,
-                                                  overflow: TextOverflow.ellipsis,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 )),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 3.0,
                                             ),
                                             SizedBox(
                                                 width: 200,
                                                 child: Text(
                                                   eventItem.location!,
-                                                  style: TextStyle(fontSize: 11),
+                                                  style: const TextStyle(
+                                                      fontSize: 11),
                                                   maxLines: 2,
-                                                  overflow: TextOverflow.ellipsis,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 )),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 3.0,
                                             ),
                                             Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.end,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
-                                                Container(
-                                                  height: 30,
-                                                  width: 30,
-                                                  decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              11),
-                                                      border: Border.all(
-                                                          color: Colors.black38)),
-                                                  child: GestureDetector(
+                                                const Stack(
+                                                  textDirection:
+                                                      TextDirection.rtl,
+                                                  alignment:
+                                                      Alignment.bottomLeft,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          Alignment.center,
+                                                      child: CircleAvatar(
+                                                        foregroundImage: AssetImage(
+                                                            'assets/images/person1.jpeg'),
+                                                        maxRadius: 11,
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding: EdgeInsets.only(
+                                                          left: 12.0),
+                                                      child: Align(
+                                                        alignment:
+                                                            Alignment.center,
+                                                        child: CircleAvatar(
+                                                          foregroundImage:
+                                                              AssetImage(
+                                                                  'assets/images/person2.jpg'),
+                                                          maxRadius: 11,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding: EdgeInsets.only(
+                                                          left: 22.0),
+                                                      child: Align(
+                                                        alignment:
+                                                            Alignment.center,
+                                                        child: CircleAvatar(
+                                                          foregroundImage:
+                                                              AssetImage(
+                                                                  'assets/images/person3.jpg'),
+                                                          maxRadius: 11,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                const SizedBox(
+                                                  width: 2,
+                                                ),
+                                                const Text(
+                                                  '+20 Going',
+                                                  style: TextStyle(
+                                                      color: Colors.blue,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 9),
+                                                ),
+                                                const SizedBox(
+                                                  width: 15,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.end,
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    GestureDetector(
                                                       onTap: () => SocialShare
                                                           .shareOptions(eventItem
                                                                   .eventname ??
                                                               ''),
-                                                      child: Icon(
-                                                        Icons.share,
-                                                        size: 15,
-                                                      )),
-                                                ),
-                                                SizedBox(
-                                                  width: 10,
-                                                ),
-                                                Container(
-                                                  height: 30,
-                                                  width: 30,
-                                                  decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              11),
-                                                      border: Border.all(
-                                                          color: Colors.black38)),
-                                                  child: Icon(
-                                                    Icons.star_border_outlined,
-                                                    size: 18,
-                                                  ),
+                                                      child: Container(
+                                                        height: 30,
+                                                        width: 30,
+                                                        decoration: BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        11),
+                                                            border: Border.all(
+                                                                color: Colors
+                                                                    .black38)),
+                                                        child: const Icon(
+                                                          Icons.share,
+                                                          size: 15,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    const SizedBox(
+                                                      width: 10,
+                                                    ),
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        setState(() {
+                                                          eventItem
+                                                                  .isFavourite =
+                                                              !eventItem
+                                                                  .isFavourite;
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .showSnackBar(SnackBar(
+                                                                  content: Text(eventItem
+                                                                          .isFavourite
+                                                                      ? 'Added to favourite'
+                                                                      : 'Removed from favourite')));
+                                                        });
+                                                        // categoryController.addToFavourites(eventItem);
+                                                      },
+                                                      child: Container(
+                                                        height: 30,
+                                                        width: 30,
+                                                        decoration: BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        11),
+                                                            border: Border.all(
+                                                                color: Colors
+                                                                    .black38)),
+                                                        child: Icon(
+                                                          eventItem.isFavourite
+                                                              ? Icons.star
+                                                              : Icons
+                                                                  .star_border_outlined,
+                                                          size: 18,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ],
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 3.0,
                                             ),
                                           ],

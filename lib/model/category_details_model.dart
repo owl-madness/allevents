@@ -39,6 +39,7 @@ class Item {
   String? thumbUrl;
   String? thumbUrlLarge;
   int? startTime;
+  bool isFavourite;
   String? startTimeDisplay;
   int? endTime;
   String? endTimeDisplay;
@@ -63,6 +64,7 @@ class Item {
     this.thumbUrl,
     this.thumbUrlLarge,
     this.startTime,
+    this.isFavourite = false,
     this.startTimeDisplay,
     this.endTime,
     this.endTimeDisplay,

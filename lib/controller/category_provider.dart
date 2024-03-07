@@ -69,4 +69,8 @@ class CategoryController extends ChangeNotifier {
     fetchCategoryDetailsList(context);
     notifyListeners();
   }
+
+  addToFavourites(Item eventItem) {
+    
+  }
 }
